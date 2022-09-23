@@ -1,5 +1,6 @@
 package ru.yandex.praktikum;
 
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,7 +40,7 @@ public class StellarUserLoginTest {
         stellarPageRegister.userRegister(userEmail, userPassword, userName);
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Use breowser: {0}")
     public static Object[] GetData(){
         return new Object[] { "Chrome", "EDGE"};
     }
@@ -51,6 +52,7 @@ public class StellarUserLoginTest {
     }
 
     @Test
+    @DisplayName("Тест логина через кнопку в ЛК")
     public void stellarUserLoginLKTest() {
         driver.get(StellarMainPage.pageURL);
 
@@ -78,6 +80,7 @@ public class StellarUserLoginTest {
     }
 
     @Test
+    @DisplayName("Тест логина через кнопку на главной странице")
     public void stellarUserLoginMainLoginTest() {
         driver.get(StellarMainPage.pageURL);
 
@@ -105,6 +108,7 @@ public class StellarUserLoginTest {
     }
 
     @Test
+    @DisplayName("Тест логина через форму регистрации")
     public void stellarUserLoginRegisterLoginTest() {
         driver.get(StellarPageRegister.pageURL);
 
@@ -134,6 +138,7 @@ public class StellarUserLoginTest {
     }
 
     @Test
+    @DisplayName("Тест логина через форму сброса пароля")
     public void stellarUserLoginPasswordRecoveryTest() {
         driver.get(StellarPasswordRecovery.pageURL);
 

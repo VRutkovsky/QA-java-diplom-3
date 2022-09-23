@@ -1,5 +1,6 @@
 package ru.yandex.praktikum;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,7 +15,7 @@ public class StellarPasswordRecovery {
         this.driver = driver;
     }
 
-    // Нажатие ссылки на логин
+    @Step("Нажатие ссылки на логин")
     public void buttonUserLoginClick() {
         WebElement element = driver.findElement(linkUserLogin);
         //JavascriptExecutor executor = (JavascriptExecutor)driver;

@@ -1,5 +1,6 @@
 package ru.yandex.praktikum;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,7 +24,7 @@ public class StellarPageRegister {
         this.driver = driver;
     }
 
-    //Ввод данных для регистрации
+    @Step("Ввод данных для регистрации")
     public void userRegister(String userEmail, String userPassword, String userName){
 
         // Ждать до появления поля Email
@@ -41,13 +42,14 @@ public class StellarPageRegister {
         driver.findElement(buttonRegister).click();
     }
 
+    @Step("Проверка сообщения о неверном пароле")
     public void checkWrongPasswordMessageVisible(){
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOfElementLocated(messageWrongPassword));
 
         assertTrue(driver.findElement(messageWrongPassword).isDisplayed());
     }
-    // Нажатие ссылки на логин
+    @Step(" Нажатие ссылки на логин")
     public void buttonUserLoginClick() {
         WebElement element = driver.findElement(linkUserLogin);
         //JavascriptExecutor executor = (JavascriptExecutor)driver;

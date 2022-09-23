@@ -1,5 +1,6 @@
 package ru.yandex.praktikum;
 
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +22,7 @@ public class StellarJumpsTest {
         this.driver = StellarDriver.initDriver(useBrowser);
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Use breowser: {0}")
     public static Object[] GetData(){
         return new Object[] {"Chrome", "EDGE"};
     }
@@ -49,6 +50,7 @@ public class StellarJumpsTest {
     }
 
     @Test
+    @DisplayName("Тест перехода в ЛК и в конструктор")
     public void stellarUserLoginLKTest() {
         driver.get(StellarPageLogin.pageURL);
 
@@ -79,6 +81,7 @@ public class StellarJumpsTest {
     }
 
     @Test
+    @DisplayName("Тест логаута")
     public void stellarUserExitTest() {
         driver.get(StellarPageLogin.pageURL);
 

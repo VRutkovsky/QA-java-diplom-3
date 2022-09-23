@@ -1,5 +1,6 @@
 package ru.yandex.praktikum;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -30,16 +31,16 @@ public class StellarPageLogin {
         this.driver = driver;
     }
 
-    // Нажатие кнопки входа в личный кабинет
+    @Step(" Нажатие кнопки входа в личный кабинет")
     public void buttonUserLKClick() {
         driver.findElement(buttonUserLK).click();
     }
 
-    // Нажатие линка регистрации нового пользователя
+    @Step(" Нажатие линка регистрации нового пользователя")
     public void linkUserRegisterClick() {
         driver.findElement(linkUserRegister).click();
     }
-    // Проверка, что видно лэйбл "Вход"
+    @Step(" Проверка, что видно лэйбл 'Вход'")
     public void checkUserLoginTitleVisible(){
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOfElementLocated(titleUserLogin));
@@ -47,6 +48,7 @@ public class StellarPageLogin {
         assertTrue(driver.findElement(titleUserLogin).isDisplayed());
     }
 
+    @Step("User Login Step")
     public void userLogin(String userEmail, String userPassword){
 
         // Ждать до появления поля Email
@@ -65,7 +67,7 @@ public class StellarPageLogin {
         element.click();
     }
 
-    // Проверка, что видно лэйбл "Профиль"
+    @Step(" Проверка, что видно лэйбл 'Профиль'")
     public void checkUserProfilePageVisible(){
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOfElementLocated(titleUserProfile));

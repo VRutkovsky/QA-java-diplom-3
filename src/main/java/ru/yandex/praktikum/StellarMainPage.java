@@ -1,5 +1,6 @@
 package ru.yandex.praktikum;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -35,7 +36,7 @@ public class StellarMainPage {
         this.driver = driver;
     }
 
-    // Нажатие кнопки входа в личный кабинет
+    @Step("Нажатие кнопки входа в личный кабинет")
     public void buttonUserLKClick() {
 
         WebElement element = driver.findElement(buttonUserLK);
@@ -45,7 +46,7 @@ public class StellarMainPage {
         element.click();
     }
 
-    // Нажатие кнопки логина
+    @Step(" Нажатие кнопки логина")
     public void buttonUserMainLoginClick() {
         WebElement element = driver.findElement(buttonUserLogin);
         //JavascriptExecutor executor = (JavascriptExecutor)driver;
@@ -54,7 +55,7 @@ public class StellarMainPage {
         element.click();
     }
 
-    // Нажатие закладки Булки
+    @Step(" Нажатие закладки Булки")
     public void tabBulkaClick() throws InterruptedException {
         WebElement element = driver.findElement(tabBulka);
         JavascriptExecutor executor = (JavascriptExecutor)driver;
@@ -63,7 +64,7 @@ public class StellarMainPage {
         Thread.sleep(3000);
     }
 
-    // Нажатие закладки Соусы
+    @Step(" Нажатие закладки Соусы")
     public void tabSouceClick() throws InterruptedException {
         WebElement element = driver.findElement(tabSouce);
         JavascriptExecutor executor = (JavascriptExecutor)driver;
@@ -72,7 +73,7 @@ public class StellarMainPage {
         Thread.sleep(3000);
     }
 
-    // Нажатие закладки Начинки
+    @Step(" Нажатие закладки Начинки")
     public void tabFillingClick() throws InterruptedException {
         WebElement element = driver.findElement(tabFilling);
         JavascriptExecutor executor = (JavascriptExecutor)driver;
@@ -83,7 +84,7 @@ public class StellarMainPage {
 
     }
 
-    // Проверка, что видно лэйбл "Соберите бургер"
+    @Step(" Проверка, что видно лэйбл 'Соберите бургер'")
     public void checkMainPageOpenedVisible(){
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOfElementLocated(titleMainPageBurger));
@@ -91,7 +92,7 @@ public class StellarMainPage {
         assertTrue(driver.findElement(titleMainPageBurger).isDisplayed());
     }
 
-    // Проверка, что видно лэйбл "Профиль"
+    @Step(" Проверка, что видно лэйбл 'Профиль' ")
     public void checkUserProfilePageVisible(){
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOfElementLocated(titleUserProfile));
@@ -99,7 +100,7 @@ public class StellarMainPage {
         assertTrue(driver.findElement(titleUserProfile).isDisplayed());
     }
 
-    // Проверка, что заголовок "Булки" находится на верху фрэйма ингридиентов
+    @Step(" Проверка, что заголовок 'Булки' находится на верху фрэйма ингридиентов")
     public void checkHeaderBulkaIsOnTopOfFrame(){
 
         WebElement element = driver.findElement(frameIngredients);
@@ -112,7 +113,7 @@ public class StellarMainPage {
         assertTrue((header_top >= frame_top)&&(header_top < frame_top + 5 * header_height));
     }
 
-    // Проверка, что заголовок "Соусы"  находится на верху фрэйма ингридиентов
+    @Step(" Проверка, что заголовок 'Соусы'  находится на верху фрэйма ингридиентов")
     public void checkHeaderSouceIsOnTopOfFrame(){
 
         WebElement element = driver.findElement(frameIngredients);
@@ -129,7 +130,7 @@ public class StellarMainPage {
         assertTrue((header_top >= frame_top)&&(header_top < frame_top + 5 * header_height));
     }
 
-    // Проверка, что заголовок "Начинки"  находится на верху фрэйма ингридиентов
+    @Step(" Проверка, что заголовок 'Начинки'  находится на верху фрэйма ингридиентов")
     public void checkHeaderFillingIsOnTopOfFrame(){
         WebElement element = driver.findElement(frameIngredients);
         int frame_top = element.getLocation().getY();

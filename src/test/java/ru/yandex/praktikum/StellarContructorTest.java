@@ -1,5 +1,6 @@
 package ru.yandex.praktikum;
 
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +19,7 @@ public class StellarContructorTest {
         this.driver = StellarDriver.initDriver(useBrowser);
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Use breowser: {0}")
     public static Object[] GetData(){
         return new Object[] {"Chrome", "EDGE"};
     }
@@ -30,6 +31,7 @@ public class StellarContructorTest {
     }
 
     @Test
+    @DisplayName("Тест нажатия на закладку Булки")
     public void stellarTabBulkaTest() throws InterruptedException {
         driver.get(StellarMainPage.pageURL);
 
@@ -43,6 +45,7 @@ public class StellarContructorTest {
     }
 
     @Test
+    @DisplayName("Тест нажатия на закладку Соусы")
     public void stellarTabSouceTest() throws InterruptedException {
         driver.get(StellarMainPage.pageURL);
 
@@ -56,6 +59,7 @@ public class StellarContructorTest {
     }
 
     @Test
+    @DisplayName("Тест нажатия на закладку Начинки")
     public void stellarTabFillingTest() throws InterruptedException {
         driver.get(StellarMainPage.pageURL);
 

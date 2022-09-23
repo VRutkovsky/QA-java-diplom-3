@@ -23,7 +23,7 @@ public class StellarUserRegisterTest {
         driver.quit();
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Use breowser: {0}")
     public static Object[] GetData(){
         return new Object[] {"Chrome", "EDGE"};
     }

@@ -1,5 +1,6 @@
 package ru.yandex.praktikum;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -24,17 +25,17 @@ public class StellarUserProfile {
         //Страница профиля пользователя
     }
 
-    // Нажатие кнопки выхода
+    @Step(" Нажатие кнопки выхода")
     public void buttonUserExitClick() {
         driver.findElement(buttonExit).click();
     }
 
-    // Нажатие кнопки конструктор
+    @Step(" Нажатие кнопки конструктор")
     public void buttonConstructorClick() {
         driver.findElement(buttonConstructor).click();
     }
 
-    // Проверка, что видно лэйбл "Профиль"
+    @Step(" Проверка, что видно лэйбл 'Профиль'")
     public void checkUserProfilePageVisible(){
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOfElementLocated(titleUserProfile));
